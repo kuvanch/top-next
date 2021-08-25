@@ -5,7 +5,7 @@
 	grid-template-rows: auto 1fr auto;
 	grid-template-columns: auto 230px minmax(320px, 1200px) auto;
 	gap: 0 30px;
-    grid-template-areas:
+	grid-template-areas:
 		'. header header .'
 		'. sidebar body .'
 		'footer footer footer footer';
