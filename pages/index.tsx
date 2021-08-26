@@ -25,11 +25,7 @@ export function Home({menu}:HomeProps): JSX.Element {
       <Tag tag='green'>green</Tag>
       <Tag tag='primary'>primary</Tag>
       <Rating rating={rating} setRating={setRating} isEditable/>
-      <ul>
-        {
-          menu.map( item => (<li key={item._id.secondCategory}>{item._id.secondCategory}</li>))
-        }
-      </ul>
+      
     </>
   );
 }
