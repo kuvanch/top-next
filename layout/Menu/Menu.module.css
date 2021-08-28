@@ -33,6 +33,14 @@
 	line-height: 16px;
 }
 
+.secondLevelBlock {
+	display: none;
+}
+
+.secondLevelBlockOpened {
+	display: block;
+}
+
 .secondBlock {
 	margin-top: 15px;
 	margin-left: 12px;

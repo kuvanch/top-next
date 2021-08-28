@@ -10,7 +10,6 @@ import { withLayout } from "../layout/Layout";
 export function Home({menu}:HomeProps): JSX.Element {
   const [rating, setRating] = useState<number>(4);
 
-
   return (
     <>
       <Htag tag='h2'>Kolya</Htag>
@@ -25,7 +24,6 @@ export function Home({menu}:HomeProps): JSX.Element {
       <Tag tag='green'>green</Tag>
       <Tag tag='primary'>primary</Tag>
       <Rating rating={rating} setRating={setRating} isEditable/>
-      
     </>
   );
 }
