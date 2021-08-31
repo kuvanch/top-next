@@ -1,21 +1,13 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../../context/app.context';
-import { TopLevelCategory } from '../../interfaces/toppage.interface';
 import styles from './Menu.module.css';
-import CoursesIcon from './icons/courses.svg';
-import SerivesIcon from './icons/services.svg';
-import BooksIcon from './icons/books.svg';
-import ProductsIcon from './icons/products.svg';
+
 import cn from 'classnames';
 import { PageItem } from '../../interfaces/menu.interface';
 import { useRouter } from 'next/router';
+import { firstLevelMenu, firstLevelMenuItem } from '../../helpers/helpers';
 
-const firstLevelMenu: firstLevelMenuItem[] = [
-    {route: 'courses',name: 'Курсы',icon: <CoursesIcon/>, id: TopLevelCategory.Courses},
-    {route: 'services',name: 'Сервисы',icon: <SerivesIcon/>, id: TopLevelCategory.Services},
-    {route: 'books',name: 'Книги',icon: <BooksIcon/>, id: TopLevelCategory.Books},
-    {route: 'products',name: 'Продукты',icon: <ProductsIcon/>, id: TopLevelCategory.Products},
-];
+
 
 
 export const Menu = ():JSX.Element => {
@@ -90,9 +82,3 @@ export const Menu = ():JSX.Element => {
     );
 };
 
-export interface firstLevelMenuItem {
-    route: string;
-    name: string;
-    icon: JSX.Element;
-    id: TopLevelCategory;
-}
