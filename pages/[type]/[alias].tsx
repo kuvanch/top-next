@@ -1,6 +1,7 @@
 import axios from "axios";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import { ParsedUrlQuery } from "querystring";
+import { TopPage } from "../../components";
 import { firstLevelMenu } from "../../helpers/helpers";
 import { MenuItem } from "../../interfaces/menu.interface";
 import { ProductModel } from "../../interfaces/product.interface";
@@ -10,8 +11,8 @@ import {
 } from "../../interfaces/toppage.interface";
 import { withLayout } from "../../layout/Layout";
 
-export function Course({ menu, page, products }: CoursesProps): JSX.Element {
-  return <>{products && products.length}</>;
+export function Course({ firstCategory, page, products }: CoursesProps): JSX.Element {
+  return <TopPage firstCategory={firstCategory} page={page} products={products}/>;
 }
 export default withLayout(Course);
 
