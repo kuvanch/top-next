@@ -5,3 +5,5 @@ export * from './Rating/Rating';
 export * from './TopPage/TopPage';
 export * from './Card/Card';
 export * from './hhData/HhData';
+export * from './Advantages/Advantages';
+export * from './P/P';
