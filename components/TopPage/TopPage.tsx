@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
 import { Htag,Tag,HhData,Advantages,Sort} from '..';
 import { TopLevelCategory } from '../../interfaces/toppage.interface';
+import { Product } from '../Product/Product';
 import { SortEnum } from '../Sort/Sort.props';
 import { sortReducer } from './sort.reducer';
 import styles from './TopPage.module.css';
@@ -20,7 +21,7 @@ export const TopPage = ({page,firstCategory,products}:TopPageProps):JSX.Element 
               <Sort sort={sort} setSort={setSort}/>
             </div>  
             <div>
-                {sortedProducts && sortedProducts.map(p => <div key={`${p._id}`}>{p.title}</div>)}
+                {sortedProducts && sortedProducts.map(p => <Product key={`${p._id}`} product={p}/>)}
             </div>
             <div className={styles.hhTitle}>
               <Htag tag='h2'>Вакансии - {page.category}</Htag>

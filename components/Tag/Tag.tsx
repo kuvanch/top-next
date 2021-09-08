@@ -4,9 +4,9 @@ import cn from 'classnames';
 
 import styles from './Tag.module.css';
 
-export const Tag = ({children,tag}:TagProps):JSX.Element => {
+export const Tag = ({children,tag,className}:TagProps):JSX.Element => {
     return (
-        <div className={cn({
+        <div className={cn(className,{
             [styles.red]: tag === 'red',
             [styles.ghost]: tag === 'ghost',
             [styles.green]: tag === 'green',
