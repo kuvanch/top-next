@@ -8,7 +8,7 @@ export interface ReviewModel {
     title: string;
     description: string;
     rating: number;
-    createAt: Date
+    createdAt: Date
 }
 export interface ProductModel {
     _id: SVGStringList;
