@@ -9,7 +9,7 @@ import { Button } from '../Button/Button';
 import { declOfNum, priceRu } from '../../helpers/helpers';
 import { Divider } from '../Divider/Divider';
 import Image from 'next/image';
-import { Review } from '..';
+import { Review, ReviewForm } from '..';
 
 export const Product = ({product,className,...props}:ProductProps): JSX.Element => {
     const [isReviewOpened, SetIsReviewOpened] = useState<boolean>(false);
@@ -71,7 +71,13 @@ export const Product = ({product,className,...props}:ProductProps): JSX.Element 
             [styles.opened]: isReviewOpened,
             [styles.closed]: !isReviewOpened
         })}>
-            {product.reviews.map((r) => <Review key={r._id} review={r}/>)}
+            {product.reviews.map((r) => (
+                <>
+                    <Review key={r._id} review={r}/>
+                    <Divider />
+                </>
+            ))}
+            <ReviewForm productId={`${product._id}`}/>
         </Card>
         </>
     );
