@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../../context/app.context';
 import styles from './Menu.module.css';
-
+import Link from 'next/link';
 import cn from 'classnames';
 import { PageItem } from '../../interfaces/menu.interface';
 import { useRouter } from 'next/router';
@@ -67,11 +67,14 @@ export const Menu = ():JSX.Element => {
     const buildThirdLevel = (pages: PageItem[], route: string) => {
         return (
             pages.map(p => (
-                <a key={p._id} href={`/${route}/${p.alias}`} className={cn(styles.thirdLevel,{
-                    [styles.thirdLevelActice]: `/${route}/${p.alias}` == router.asPath
-                })}>
-                    {p.category}
-                </a>
+                <Link key={p._id} href={`/${route}/${p.alias}`}>
+                    <a className={cn(styles.thirdLevel,{
+                        [styles.thirdLevelActice]: `/${route}/${p.alias}` == router.asPath
+                    })}>
+                        {p.category}
+                    </a>
+                </Link>
+                
             ))
         );
     };
