@@ -59,7 +59,7 @@
 	cursor: pointer;
 }
 
-.error .close path {
+.error .close svg path {
 	stroke: #FEA291;
 }
 

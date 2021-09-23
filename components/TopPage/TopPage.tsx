@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { Htag,Tag,HhData,Advantages,Sort} from '..';
 import { TopLevelCategory } from '../../interfaces/toppage.interface';
 import { Product } from '../Product/Product';
@@ -13,6 +13,10 @@ export const TopPage = ({page,firstCategory,products}:TopPageProps):JSX.Element 
     const setSort = (sort:SortEnum) => {
       dispatchSort({type:sort});
     };
+
+    useEffect(() => {
+      dispatchSort({type: 'reset', initialState: products});
+    }, [products]);
     return (
         <div className={styles.wrapper}>
             <div className={styles.title}>

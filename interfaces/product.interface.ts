@@ -26,7 +26,7 @@ export interface ProductModel {
     image: string;
     initialRating: number;
     reviews: ReviewModel[];
-    reviewsCount: number;
+    reviewCount: number;
     reviwsAvg?: number;
     advantages?: string;
     disadvantages?: string;
