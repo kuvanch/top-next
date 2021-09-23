@@ -41,12 +41,26 @@
 	font-weight: bold;
 }
 
+.error {
+	position: relative;
+
+	margin-top: 20px;
+	padding: 20px;
+
+	border-radius: 5px;
+	background: #FEA291;
+}
+
 .close {
 	position: absolute;
 	top: 20px;
 	right: 20px;
 
 	cursor: pointer;
+}
+
+.error .close path {
+	stroke: #FEA291;
 }
 
 @media screen and (max-width: 1100px) {

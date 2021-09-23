@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { ReviewFormProps } from "./ReviewForm.props";
 import cn from "classnames";
 import styles from "./ReviewForm.module.css";
 import { Button, Input, Rating, Textarea } from "..";
 import CloseIcon from "./close.svg";
 import { useForm, Controller } from "react-hook-form";
-import { IReviewForm } from "./ReviewForm.interface";
+import { IReviewForm, IReviewSentResponse } from "./ReviewForm.interface";
+import { API } from "../../helpers/api";
+import axios from "axios";
 
 export const ReviewForm = ({
   productId,
@@ -16,10 +18,23 @@ export const ReviewForm = ({
     register,
     control,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }, reset
   } = useForm<IReviewForm>();
-  const onSubmit = (data: IReviewForm) => {
-    console.log(data);
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
+  const [error, setError] = useState<string | undefined>('');
+  const onSubmit = async (formData: IReviewForm) => {
+    try {
+      const {data} = await axios.post<IReviewSentResponse>(API.review.createDemo,{...formData,productId});
+      if(data.message) {
+        setIsSuccess(true);
+        reset();
+      }else {
+        setError('Что-то произошло не так');
+      }
+    } catch (e) {
+      setError('Что-то произошло не так');
+    }
+
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -68,11 +83,15 @@ export const ReviewForm = ({
           </span>
         </div>
       </div>
-      <div className={styles.success}>
+      {isSuccess && <div className={styles.success}>
         <div className={styles.successTitle}>Ваша отзыв отправлено</div>
         <div>Спасибо, ваш отзыв будет опубликован после проверки.</div>
-        <CloseIcon className={styles.close} />
-      </div>
+        <CloseIcon onClick={() => setIsSuccess(false)} className={styles.close} />
+      </div>}
+      {error && <div className={styles.error}>
+        Что-то произошло нет так
+        <CloseIcon onClick={() => setError(undefined)} className={styles.close} />
+      </div>}
     </form>
   );
 };
