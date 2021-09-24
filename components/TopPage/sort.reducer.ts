@@ -29,4 +29,4 @@ export const sortReducer = (state: SortReducerState, action:SortActions):SortRed
         default:
            throw new Error('Неверный тип сортировка');
     }
-}
+};

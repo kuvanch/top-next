@@ -34,11 +34,7 @@
 }
 
 .secondLevelBlock {
-	display: none;
-}
-
-.secondLevelBlockOpened {
-	display: block;
+	overflow: hidden;
 }
 
 .secondBlock {
@@ -47,10 +43,6 @@
 	padding-left: 32px;
 
 	border-left: 1px solid #DFDFDF;
-}
-
-.secondLevelOpened:last-child {
-	margin-bottom: 20px;
 }
 
 .thirdLevel {
