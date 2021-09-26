@@ -1,6 +1,6 @@
 import { SearchProps } from './Search.props';
 import styles from './Search.module.css';
-import GlassIcon from './glass.svg';
+import GlassIcon from './search.svg';
 import cn from 'classnames';
 import { Input } from '../Input/Input';
 import { Button } from '../Button/Button';
