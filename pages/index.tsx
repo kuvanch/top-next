@@ -8,7 +8,7 @@ import { API } from "../helpers/api";
 import { MenuItem } from "../interfaces/menu.interface";
 import { withLayout } from "../layout/Layout";
 
-export function Home({menu}:HomeProps): JSX.Element {
+export function Home(): JSX.Element {
   const [rating, setRating] = useState<number>(4);
 
   return (
